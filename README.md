@@ -1,2 +1,1 @@
-# register-meta-data
-Register Meta Data
+# Register Metadata
