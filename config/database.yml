@@ -1,0 +1,79 @@
+development:
+  adapter: jdbc
+  url: jdbc:db2://db3gdist.diti.lr.net:2298/LANDREGDB3G:retrieveMessagesFromServerOnGetMessage=true;emulateParameterMetaDataForZCalls=1;securityMechanism=4;currentSchema=UACT;currentFunctionPath=UACT;
+  driver: com.ibm.db2.jcc.DB2Driver
+  database: LANDREGDB3G
+  username: DB2MIGUS
+  enc_password: "Bf9/V1pm5yBrzbxThrYv3g==\n"
+  enc_iv: "nmTFixMRQJve/cTdEINAjQ==\n"
+  encoding: unicode
+  pool: 1
+  prepared_statements: true
+
+test:
+  adapter: jdbc
+  url: jdbc:db2://db3gdist.diti.lr.net:2298/LANDREGDB3G:retrieveMessagesFromServerOnGetMessage=true;emulateParameterMetaDataForZCalls=1;securityMechanism=4;currentSchema=UACT;currentFunctionPath=UACT;
+  driver: com.ibm.db2.jcc.DB2Driver
+  database: LANDREGDB3G
+  username: DB2MIGUS
+  enc_password: "Bf9/V1pm5yBrzbxThrYv3g==\n"
+  enc_iv: "nmTFixMRQJve/cTdEINAjQ==\n"
+  encoding: unicode
+  pool: 1
+  prepared_statements: true
+
+preview:
+  adapter: jdbc
+  url: jdbc:db2://db3gdist.diti.lr.net:2298/LANDREGDB3G:retrieveMessagesFromServerOnGetMessage=true;emulateParameterMetaDataForZCalls=1;securityMechanism=4;currentSchema=UACT;currentFunctionPath=UACT;
+  driver: com.ibm.db2.jcc.DB2Driver
+  database: LANDREGDB3G
+  username: DB2MIGUS
+  enc_password: "09X2TANnZ/knRguS6JygTA==\n"
+  enc_iv: "QM797EXIQH03utTgP9JQQA==\n"
+  encoding: unicode
+  pool: 1
+  prepared_statements: true
+
+release:
+  adapter: jdbc
+  url: jdbc:db2://db3gdist.diti.lr.net:2298/LANDREGDB3G:retrieveMessagesFromServerOnGetMessage=true;emulateParameterMetaDataForZCalls=1;securityMechanism=4;currentSchema=UACT;currentFunctionPath=UACT;
+  driver: com.ibm.db2.jcc.DB2Driver
+  database: LANDREGDB3G
+  username: DB2MIGUS
+  enc_password: "09X2TANnZ/knRguS6JygTA==\n"
+  enc_iv: "QM797EXIQH03utTgP9JQQA==\n"
+  encoding: unicode
+  pool: 1
+  prepared_statements: true
+
+preproduction:
+  adapter: jdbc
+  url: jdbc:db2://db1gdist.diti.lr.net:2298/LANDREGDB1G:retrieveMessagesFromServerOnGetMessage=true;emulateParameterMetaDataForZCalls=1;securityMechanism=4;currentSchema=HMLR;currentFunctionPath=HMLR;
+  driver: com.ibm.db2.jcc.DB2Driver
+  database: LANDREGDB1G
+  username: DB2MIGUS
+  enc_password: "dOgGRxV89m3OqTlXtXiOAg==\n"
+  enc_iv: "P3ilKy2R390HhwlxJb3jtg==\n"
+  encoding: unicode
+  pool: 1
+  prepared_statements: true
+
+production:
+  adapter: jdbc
+  url: jdbc:db2://db1gdist.diti.lr.net:2298/LANDREGDB1G:retrieveMessagesFromServerOnGetMessage=true;emulateParameterMetaDataForZCalls=1;securityMechanism=4;currentSchema=HMLR;currentFunctionPath=HMLR;
+  driver: com.ibm.db2.jcc.DB2Driver
+  database: LANDREGDB1G
+  username: DB2MIGUS
+  enc_password: "dOgGRxV89m3OqTlXtXiOAg==\n"
+  enc_iv: "P3ilKy2R390HhwlxJb3jtg==\n"
+  encoding: unicode
+  pool: 1
+  prepared_statements: true
+
+register_metadata_development:
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  username: postgres
+  password: admin
+  database: verification
