@@ -51,9 +51,10 @@ def migrate_all_cre_info()
       FROM T_DRAFT_ENTRY',
       'Migrating metadata')
 
-      CRE_codes = Array.new
-      res.each do | row |
-        puts row['DRAFT_ENTRY_CODE']
+      res.each_with_index do | row, i |
+        if i == 0 then
+          puts row['draft_entry_code']
+        end
       end
 
     rescue => e
@@ -61,7 +62,6 @@ def migrate_all_cre_info()
     ensure
         DB2Database::ActiveRecord::Base.clear_active_connections!
     end
-
-    return json.to_s
-
 end
+
+migrate_all_cre_info()
