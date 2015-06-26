@@ -43,18 +43,25 @@ class ColumnTypes
   end
 end
 
+class RegisterMetadataDB < ActiveRecord::Base
+end
+
+RegisterMetadataDB.establish_connection(dbconfig["register_metadata_#{ENV['RACK_ENV']}"])
+
 def migrate_all_cre_info()
 
     begin
-      res = DB2Database.connection.exec_query('
-      SELECT DRAFT_ENTRY_CODE, REPL_INFILL_CODES, REPL_DRAFT_ENTRY
-      FROM T_DRAFT_ENTRY',
+      res = DB2Database.connection.exec_query("
+      SELECT DRAFT_ENTRY_CODE, DRAFT_ENTRY_VERS, REPL_INFILL_CODES, REPL_DRAFT_ENTRY
+      FROM T_DRAFT_ENTRY
+			WHERE LANG_CODE = 'ENG'",
       'Migrating metadata')
 
       res.each_with_index do | row, i |
-        if i == 0 then
-          puts row['draft_entry_code']
-        end
+
+					sql = RegisterMetadataDB.send(:sanitize_sql_array, ["insert into public.cre (code, version, template, infills) VALUES(?,?,?,?)", row['draft_entry_code'], row['draft_entry_vers'], row['repl_draft_entry'], row['repl_infill_codes']])
+					RegisterMetadataDB.connection.execute(sql)
+
       end
 
     rescue => e

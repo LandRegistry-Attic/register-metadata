@@ -76,4 +76,4 @@ register_metadata_development:
   port: 5432
   username: postgres
   password: admin
-  database: verification
+  database: registermetadata
