@@ -1,6 +1,10 @@
 from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+db = SQLAlchemy(app)
+
 from application import routes
 
 # Set up logging if application has not been started in debug mode
