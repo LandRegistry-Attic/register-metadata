@@ -47,7 +47,7 @@ def migrate_all_cre_info()
 
     begin
       res = DB2Database.connection.exec_query('
-      SELECT DRAFT_ENTRY_CODE, REPL_INFILL_CODES_ REPL_DRAFT_ENTRY
+      SELECT DRAFT_ENTRY_CODE, REPL_INFILL_CODES, REPL_DRAFT_ENTRY
       FROM T_DRAFT_ENTRY',
       'Migrating metadata')
 
