@@ -10,3 +10,13 @@ class cre(db.Model):
     version = Column(Integer, primary_key=True)
     template = Column(String)
     infills = Column(String)
+
+
+class mdref(db.Model):
+
+    __tablename__ = 'mdref'
+
+    code = Column(String, primary_key=True)
+    version = Column(Integer, primary_key=True)
+    mdref = Column(String)
+    sequence = Column(Integer)
