@@ -71,6 +71,8 @@ def migrate_all_cre_info()
     end
 end
 
+migrate_all_cre_info()
+
 def migrate_all_mdref_info()
 
 	begin
@@ -94,3 +96,5 @@ def migrate_all_mdref_info()
 	end
 
 end
+
+migrate_all_mdref_info()
