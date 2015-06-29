@@ -55,7 +55,7 @@ def migrate_all_cre_info()
       SELECT DRAFT_ENTRY_CODE, DRAFT_ENTRY_VERS, REPL_INFILL_CODES, REPL_DRAFT_ENTRY
       FROM T_DRAFT_ENTRY
 			WHERE LANG_CODE = 'ENG'",
-      'Migrating metadata')
+      'Migrating CRE')
 
       res.each_with_index do | row, i |
 
@@ -71,4 +71,26 @@ def migrate_all_cre_info()
     end
 end
 
-migrate_all_cre_info()
+def migrate_all_mdref_info()
+
+	begin
+		res = DB2Database.connection.exec_query("
+		SELECT DRAFT_ENTRY_CODE, DRAFT_ENTRY_VERS, MD_REF, ENTRY_CODE_SEQ_NO
+		FROM T_MD_DRAFT_ENTRY
+		WHERE LANG_CODE = 'ENG'",
+		'Migrating MDRef')
+
+		res.each_with_index do | row, i |
+
+				sql = RegisterMetadataDB.send(:sanitize_sql_array, ["insert into public.mdref (code, version, mdref, sequence) VALUES(?,?,?,?)", row['draft_entry_code'], row['draft_entry_vers'], row['md_ref'], row['entry_code_seq_no']])
+				RegisterMetadataDB.connection.execute(sql)
+
+		end
+
+	rescue => e
+			raise e
+	ensure
+			DB2Database::ActiveRecord::Base.clear_active_connections!
+	end
+
+end
