@@ -71,18 +71,20 @@ def migrate_all_cre_info()
     end
 end
 
+migrate_all_cre_info()
+
 def migrate_all_mdref_info()
 
 	begin
 		res = DB2Database.connection.exec_query("
-		SELECT DRAFT_ENTRY_CODE, DRAFT_ENTRY_VERS, MD_REF, ENTRY_CODE_SEQ_NO
+		SELECT DRAFT_ENTRY_CODE, DRAFT_ENTRY_VERS, MD_REF, ENTRY_CODE_SEQ_NO, MD_DRAFT_ENTRY_ID
 		FROM T_MD_DRAFT_ENTRY
 		WHERE LANG_CODE = 'ENG'",
 		'Migrating MDRef')
 
 		res.each_with_index do | row, i |
 
-				sql = RegisterMetadataDB.send(:sanitize_sql_array, ["insert into public.mdref (code, version, mdref, sequence) VALUES(?,?,?,?)", row['draft_entry_code'], row['draft_entry_vers'], row['md_ref'], row['entry_code_seq_no']])
+				sql = RegisterMetadataDB.send(:sanitize_sql_array, ["insert into public.mdref (code, version, mdref, sequence, entry_id) VALUES(?,?,?,?,?)", row['draft_entry_code'], row['draft_entry_vers'], row['md_ref'], row['entry_code_seq_no'], row['md_draft_entry_id']])
 				RegisterMetadataDB.connection.execute(sql)
 
 		end
@@ -94,3 +96,5 @@ def migrate_all_mdref_info()
 	end
 
 end
+
+migrate_all_mdref_info()
