@@ -5,6 +5,8 @@ app = Flask(__name__)
 
 db = SQLAlchemy(app)
 
+app.config.from_object('config.DevelopmentConfig')
+
 from application import routes
 
 # Set up logging if application has not been started in debug mode
