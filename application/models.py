@@ -16,7 +16,8 @@ class mdref(db.Model):
 
     __tablename__ = 'mdref'
 
-    code = Column(String, primary_key=True)
-    version = Column(Integer, primary_key=True)
-    mdref = Column(String)
-    sequence = Column(Integer)
+    code = Column(String)
+    version = Column(Integer)
+    mdref = Column(String, primary_key=True)
+    sequence = Column(Integer, primary_key=True)
+    entry_id = Column(Integer, primary_key=True)
