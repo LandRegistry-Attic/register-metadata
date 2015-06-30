@@ -1,0 +1,13 @@
+Feature: US4a - Auto-generate entries from MD ref
+As a lender I need charge information to be generated in line with my pre-approved charge so that I can efficiently draw up charge documents and know that entries will properly reflect my interest (capture MD template info only)
+
+Acceptance Criteria
+MD details match MDref/CRE and Role Code information
+MDref with Charge and Chargee only
+
+Scenario: Generate template charge entries from an MD reference with only charge and chargee information
+
+Given that there is an MD reference with charge and chargee information
+When a case is submitted which includes the given MD reference
+Then a charge entry template is generated
+And a chargee entry template is generated
