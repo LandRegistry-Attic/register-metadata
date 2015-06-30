@@ -6,7 +6,7 @@
 ```
 Vagrant SSH into repo
 Type:
-source /vagrant/.venv/register-metadata/bin/activate
+source /tmp/.venv/register-metadata/bin/activate
 
 sudo pip install -r requirements_test.txt
 
