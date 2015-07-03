@@ -10,6 +10,7 @@ class cre(db.Model):
     version = Column(Integer, primary_key=True)
     template = Column(String)
     infills = Column(String)
+    restriction_name = Column(String)
 
 
 class mdref(db.Model):
