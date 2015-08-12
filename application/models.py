@@ -11,6 +11,7 @@ class cre(db.Model):
     template = Column(String)
     infills = Column(String)
     restriction_name = Column(String)
+    sub_role_code = Column(String)
 
 
 class mdref(db.Model):
