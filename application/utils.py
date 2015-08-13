@@ -8,6 +8,7 @@ def get_cre_info(mdref):
     join subrole c on a.sub_role_code = c.sub_role_code \
     join role d on c.entry_role_code = d.entry_role_code where b.mdref ='" + mdref + "'"
     passed_res = db.engine.execute(passed_sql)
+
     crelist = {"cres" : []}
     for row in passed_res:
         cre = {}
