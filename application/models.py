@@ -11,6 +11,7 @@ class cre(db.Model):
     template = Column(String)
     infills = Column(String)
     restriction_name = Column(String)
+    sub_role_code = Column(String)
 
 
 class mdref(db.Model):
@@ -22,3 +23,22 @@ class mdref(db.Model):
     mdref = Column(String, primary_key=True)
     sequence = Column(Integer, primary_key=True)
     entry_id = Column(Integer, primary_key=True)
+
+class role(db.Model):
+
+    __tablename__ = 'role'
+
+    entry_role_code = Column(String, nullable=False, primary_key=True)
+    entry_role_seq_no = Column(Integer, nullable=True)
+    reg_child_code = Column(String, nullable=False)
+    cat_code = Column(String, nullable=False)
+    entry_role_desc = Column(String, nullable=False)
+    entry_status_code = Column(String, nullable=True)
+
+class subrole(db.Model):
+
+    __tablename__ = 'subrole'
+
+    sub_role_code = Column(String, nullable=False, primary_key=True)
+    entry_role_code = Column(String, nullable=False)
+    sub_role_desc = Column(String, nullable=False)
