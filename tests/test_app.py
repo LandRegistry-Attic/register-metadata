@@ -26,6 +26,5 @@ class TestCaseAPI(unittest.TestCase):
         response = self.app.get('/mdref/goodref')
         response_json = json.loads(response.data.decode())
         cre_codes = response_json['cres']
-        print(cre_codes)
         assert cre_codes[0]["code"] == 'CD100'
         assert cre_codes[1]["sub_role_code"] == 'BRES'
