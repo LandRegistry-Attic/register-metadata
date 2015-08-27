@@ -7,7 +7,7 @@ from application.models import *
 from application.routes import app
 from application import db
 
-app.config.from_object('Config.DevelopmentConfig')
+app.config.from_object(os.environ.get('SETTINGS'))
 
 print(app.config)
 
