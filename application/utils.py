@@ -3,7 +3,7 @@ from application import db
 def get_cre_info(mdref):
 
     passed_sql = "select a.code, a.infills, template, restriction_name, \
-    a.sub_role_code, c.entry_role_code, d.reg_child_code \
+    a.sub_role_code, a.version, c.entry_role_code, d.reg_child_code \
     from cre a join mdref b on a.code = b.code \
     join subrole c on a.sub_role_code = c.sub_role_code \
     join role d on c.entry_role_code = d.entry_role_code where b.mdref ='" + mdref + "'"
@@ -13,6 +13,7 @@ def get_cre_info(mdref):
     for row in passed_res:
         cre = {}
         cre["code"] = row.code
+        cre["version"] = row.version
         cre["template"] = row.template
         cre["infills"] = row.infills
         cre["restriction_name"] = row.restriction_name
