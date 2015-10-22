@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+export SETTINGS="config.DevelopmentConfig"
+
 source /tmp/.venv/register-metadata/bin/activate
 
 cd /vagrant/apps/register-metadata
